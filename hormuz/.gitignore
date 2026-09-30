@@ -1,0 +1,6 @@
+out/frames/
+out/stills/
+out/draft_*.mp4
+data/raw/
+fonts/inst/
+__pycache__/
