@@ -63,8 +63,7 @@ function buildBG() {
   v.fillStyle = vg; v.fillRect(0, 0, W, H);
 }
 
-// ── HUD (editorial frame furniture) ──────────────────────────
-const CHAPTERS = [[0, '01', 'ORIGIN'], [T.s2, '02', 'TWO SYSTEMS'], [T.s3, '03', 'THE NAME'], [T.s4, '04', 'SEARCH INTEREST'], [T.s5, '05', 'MOMENTUM'], [T.s6, '06', 'THE STORY']];
+// ── HUD (editorial frame furniture) — bottom edge only; the top of the frame stays clear ──
 function drawHUD(ctx, t) {
   const a = er(t, 0.9, 1.8);
   if (a <= 0) return;
@@ -74,18 +73,9 @@ function drawHUD(ctx, t) {
   ctx.strokeStyle = col(c, 0.4); ctx.lineWidth = 1;
   const m = 40, L = 16;
   ctx.beginPath();
-  for (const [x, y, sx, sy] of [[m, m, 1, 1], [W - m, m, -1, 1], [W - m, H - m, -1, -1], [m, H - m, 1, -1]]) { ctx.moveTo(x, y + sy * L); ctx.lineTo(x, y); ctx.lineTo(x + sx * L, y); }
+  for (const [x, y, sx, sy] of [[W - m, H - m, -1, -1], [m, H - m, 1, -1]]) { ctx.moveTo(x, y + sy * L); ctx.lineTo(x, y); ctx.lineTo(x + sx * L, y); }
   ctx.stroke();
   ctx.font = FONT.mono(11, 500); ctx.letterSpacing = '3px';
-  ctx.textAlign = 'left'; ctx.fillStyle = col(c, 0.62); ctx.fillText('ATTENTION STUDY', 64, 66);
-  ctx.fillStyle = col(c, 0.36); ctx.fillText('PORTUGAL / WALES', 64, 84);
-  // chapter
-  let ch = CHAPTERS[0];
-  for (const cc of CHAPTERS) if (t >= cc[0]) ch = cc;
-  const sk = rm(t, ch[0], ch[0] + 0.45);
-  ctx.textAlign = 'right'; ctx.fillStyle = col(c, 0.62);
-  ctx.fillText(scramble(ch[1] + ' — ' + ch[2], ch[0] === 0 ? 1 : sk, ch[0] * 10), W - 64, 66);
-  ctx.fillStyle = col(c, 0.36); ctx.fillText('06', W - 64, 84);
   // timecode
   const f = Math.floor(t * FPS), s = Math.floor(f / FPS), ff = f % FPS;
   ctx.textAlign = 'left'; ctx.fillStyle = col(c, 0.4);

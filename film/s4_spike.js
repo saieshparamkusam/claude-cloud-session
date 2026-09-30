@@ -84,9 +84,9 @@ function drawSpike(ctx, t, cam) {
     // arrow head on y-axis (the chart's ceiling — the spike will leave it behind)
     if (k > 0.95) { const p = project([-80, 300, 0]); ctx.beginPath(); ctx.moveTo(p.x - 4, p.y + 7); ctx.lineTo(p.x, p.y); ctx.lineTo(p.x + 4, p.y + 7); ctx.stroke(); }
     ctx.fillStyle = col(P.cream, 0.7 * fa);
-    drawPlaneText(ctx, cam, FONT.mono(13, 500), 1, 'SEARCH INTEREST', [60, 340, 0], [1, 0, 0], [0, -1, 0], 3, 'fill', (i) => ({ a: er(t, 15.5 + i * 0.02, 15.7 + i * 0.02) }));
+    drawPlaneText(ctx, cam, FONT.mono(13, 500), 1, 'SEARCH INTEREST', [66, -112, 0], [1, 0, 0], [0, -1, 0], 3, 'fill', (i) => ({ a: er(t, 15.5 + i * 0.02, 15.7 + i * 0.02) }));
     ctx.fillStyle = col(P.cream, 0.4 * fa);
-    drawPlaneText(ctx, cam, FONT.mono(10), 1, 'RELATIVE · CONCEPTUAL', [44, 318, 0], [1, 0, 0], [0, -1, 0], 2, 'fill', (i) => ({ a: er(t, 15.7 + i * 0.015, 15.9 + i * 0.015) }));
+    drawPlaneText(ctx, cam, FONT.mono(10), 1, 'RELATIVE · CONCEPTUAL', [50, -136, 0], [1, 0, 0], [0, -1, 0], 2, 'fill', (i) => ({ a: er(t, 15.7 + i * 0.015, 15.9 + i * 0.015) }));
     drawPlaneText(ctx, cam, FONT.mono(10), 1, 'TIME →', [Xb + 640, -90, 0], [1, 0, 0], [0, -1, 0], 2, 'fill', () => ({ a: er(t, 16.2, 16.5) }));
   }
 
