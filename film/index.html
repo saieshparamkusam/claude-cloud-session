@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Attention Study — Portugal / Wales</title>
+<style>
+  @font-face { font-family: Archivo; src: url(../fonts/Archivo-VF.ttf); font-weight: 100 900; font-stretch: 62% 125%; }
+  @font-face { font-family: 'Instrument Serif'; font-style: italic; src: url(../fonts/InstrumentSerif-Italic.ttf); }
+  @font-face { font-family: 'Instrument Serif'; font-style: normal; src: url(../fonts/InstrumentSerif-Regular.ttf); }
+  @font-face { font-family: JBM; src: url(../fonts/JetBrainsMono-VF.ttf); font-weight: 100 800; }
+  html, body { margin: 0; background: #030806; }
+  canvas { display: block; width: 100vw; height: auto; max-height: 100vh; object-fit: contain; }
+  #ui { position: fixed; left: 12px; bottom: 10px; color: #EDE5D0; font: 12px monospace; opacity: .7; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<div id="ui"></div>
+<script src="core.js"></script>
+<script src="s1_map.js"></script>
+<script src="s3_name.js"></script>
+<script src="s4_spike.js"></script>
+<script src="s5_sphere.js"></script>
+<script src="s6_end.js"></script>
+<script src="main.js"></script>
+<script>
+  boot().then(() => {
+    const q = new URLSearchParams(location.search);
+    if (q.has('render')) return;             // headless renderer drives renderFrame(t)
+    let t0 = performance.now() - (parseFloat(q.get('t')) || 0) * 1000;
+    const ui = document.getElementById('ui');
+    const loop = now => {
+      const t = ((now - t0) / 1000) % DUR;
+      renderFrame(t); ui.textContent = t.toFixed(2) + 's';
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  });
+</script>
+</body>
+</html>
