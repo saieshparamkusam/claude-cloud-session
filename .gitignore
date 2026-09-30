@@ -1,0 +1,10 @@
+node_modules/
+film/frames/
+film/stills/
+film/tiles/
+film/logs/
+film/data/*.npy
+film/data/*.f16
+film/data/*.xls
+film/fonts/g.css
+film/package-lock.json
