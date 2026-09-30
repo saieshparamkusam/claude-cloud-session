@@ -782,7 +782,7 @@ function drawFleet(t) {
   const wa = win(t, 20.6, 24.2, .6, .4);
   if (wa > 0) { const pts = []; for (let c = 0; c < GRID.cols; c++) pts.push(proj(...gridSlot(c * GRID.rows).slice(0, 2), 0)); strokePts(ctx, pts, `rgba(${C.cream},${.35 * wa})`, 1); }
   // count + attribution (anchored above the grid's top-left, clamped on screen)
-  const ga = win(t, 21.2, 24.05, .5, .45);
+  const ga = win(t, 22.3, 24.05, .45, .45);
   if (ga > 0) {
     const tl = proj(...gridSlot(GRID.rows - 1).slice(0, 2), gridSlot(GRID.rows - 1)[2] + 0.1);
     if (tl) {
@@ -949,7 +949,7 @@ function drawDisruption(t) {
     const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
     line(ctx, [[lerp(mx, a[0], gp), lerp(my, a[1], gp)], [lerp(mx, b[0], gp), lerp(my, b[1], gp)]], `rgba(${C.cream},${ga})`, 2.2);
   }
-  const qa = win(t, 20.35, 22.9, .6, .5);
+  const qa = win(t, 20.35, 22.35, .6, .4);
   if (qa > 0) {
     const f = font(46, 400, 'Instrument Serif', 'italic');
     revealText(ctx, '“The largest supply disruption in the', 150, 180, inv(20.35, 20.95, t), { font: f, a: qa });
