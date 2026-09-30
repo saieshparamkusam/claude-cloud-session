@@ -3,7 +3,8 @@
 A 32.5-second, 100% motion-graphics design film about a football match that turns into a huge online event.
 **The match is the subject. Attention is the story.**
 
-▶ `out/portugal-wales-attention-study.mp4` (1920×1080, 60 fps, H.264 + 48 kHz stereo AAC)
+▶ `out/portugal-wales-attention-study.mp4` (master) · `out/portugal-wales-attention-study_preview.mp4` (20 MB preview)
+   (1920×1080, 60 fps, H.264 + 48 kHz stereo AAC)
 🖼 `out/storyboard.jpg` (16-frame contact sheet)
 
 Everything is generated in code: no footage, images, templates, samples or music loops.
