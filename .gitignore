@@ -8,3 +8,4 @@ film/data/*.f16
 film/data/*.xls
 film/fonts/g.css
 film/package-lock.json
+film/preview_*.mp4
